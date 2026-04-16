@@ -6,7 +6,7 @@ from openai import OpenAI
 app = Flask(__name__)
 
 # Initialize client (Use key here)
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="APIKEY") #replace this method later, find new way
 
 def get_oer_data(course_query):
     """Phase II Strategy: Data Retrieval from real OER repositories"""
