@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OER AI Agent | ITEC 4700</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OER AI Agent</h1>
+            <p>Find free textbooks and resources for your GGC courses.</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <input type="text" id="courseCode" placeholder="Enter Course Code (e.g. ITEC 4700)" required>
+                <input type="text" id="term" placeholder="Term (Optional)">
+                <button onclick="handleSearch()">Find Resources</button>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing OER Databases...</p>
+            </div>
+
+            <div id="resultsArea" class="hidden">
+                <h2>Top Recommended Resources</h2>
+                <div id="resultsContent"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>ITEC 4700 - AI - Spring 2026 | Prototype Version</p>
+        </footer>
+    </div>
+
+    <script>
+        async function handleSearch() {
+            const courseCode = document.getElementById('courseCode').value;
+            const term = document.getElementById('term').value;
+            const loading = document.getElementById('loading');
+            const resultsArea = document.getElementById('resultsArea');
+            const resultsContent = document.getElementById('resultsContent');
+
+            if (!courseCode) {
+                alert("Please enter a course code.");
+                return;
+            }
+
+            // UI State: Show loading, hide previous results
+            loading.classList.remove('hidden');
+            resultsArea.classList.add('hidden');
+
+            try {
+                const response = await fetch('/search', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ course_code: course_code, term: term })
+                });
+
+                const data = await response.json();
+                
+                // Displaying the results
+                resultsContent.innerHTML = `<div class="result-card">${data.results.replace(/\n/g, '<br>')}</div>`;
+                
+                loading.classList.add('hidden');
+                resultsArea.classList.remove('hidden');
+            } catch (error) {
+                loading.classList.add('hidden');
+                alert("Error connecting to the AI Agent. Please check your backend.");
+            }
+        }
+    </script>
+</body>
+</html>
