@@ -1,22 +1,7 @@
-import os
-import requests
+import json
 from flask import Flask, render_template, request, jsonify
-from openai import OpenAI
 
 app = Flask(__name__)
-
-# Initialize client (Use key here)
-client = OpenAI(api_key="APIKEY") #replace this method later, find new way
-
-def get_oer_data(course_query):
-    """Phase II Strategy: Data Retrieval from real OER repositories"""
-    # Using OER Commons API (Public Search)
-    url = f"https://www.oercommons.org/api/v1/items?q={course_query}&f.search_type=textbook"
-    try:
-        response = requests.get(url, timeout=10)
-        return response.json().get('results', [])
-    except:
-        return []
 
 @app.route('/')
 def index():
@@ -24,28 +9,28 @@ def index():
 
 @app.route('/search', methods=['POST'])
 def search():
-    course_code = request.json.get('course_code', '').upper()
+    data = request.json
+    user_input = data.get('course_code', '').upper().strip()
     
-    # Retrieval Stage
-    raw_resources = get_oer_data(course_code)
-    context_text = ""
-    for item in raw_resources[:5]:
-        context_text += f"Title: {item.get('title')} | Link: {item.get('url')}\n"
-
+    # Load local source
     try:
-        # UPDATED SYNTAX FOR NEW OPENAI LIBRARY
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a precise GGC Academic AI Agent."},
-                {"role": "user", "content": f"Context: {context_text}\n\nTask: Find 3 resources for {course_code}."}
-            ],
-            temperature=0.1
-        )
-        return jsonify({"results": response.choices[0].message.content})
+        with open('data.json', 'r') as f:
+            local_db = json.load(f)
+        
+        # Search the local data
+        results = local_db.get(user_input, [])
+        
+        if not results:
+            return jsonify({"results": f"No resources found for '{user_input}'. Try 'PROGRAMMING' or 'ITEC 4700'."})
+
+        output = f" Verified OER for {user_input}:\n\n"
+        for item in results:
+            output += f"{item['title']}<br><a href='{item['url']}' target='_blank' class='result-link'>Access Resource</a>\n\n"
+        
+        return jsonify({"results": output})
+        
     except Exception as e:
-        print(f"Error: {e}") # This prints the REAL error to your terminal
-        return jsonify({"results": "The AI Agent encountered an error. Check terminal."}), 500
+        return jsonify({"results": f"System Error: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

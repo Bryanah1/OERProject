@@ -15,7 +15,7 @@
 
         <main>
             <div class="search-box">
-                <input type="text" id="courseCode" placeholder="Enter Course Code (e.g. ITEC 4700)" required>
+                <input type="text" id="courseCode" placeholder="Enter Course Code">
                 <input type="text" id="term" placeholder="Term (Optional)">
                 <button onclick="handleSearch()">Find Resources</button>
             </div>
@@ -38,40 +38,40 @@
 
     <script>
         async function handleSearch() {
-            const courseCode = document.getElementById('courseCode').value;
-            const term = document.getElementById('term').value;
-            const loading = document.getElementById('loading');
-            const resultsArea = document.getElementById('resultsArea');
-            const resultsContent = document.getElementById('resultsContent');
+    console.log("Button clicked!"); // Check 1
+    const courseCode = document.getElementById('courseCode').value;
+    const loading = document.getElementById('loading');
+    const resultsArea = document.getElementById('resultsArea');
+    const resultsContent = document.getElementById('resultsContent');
 
-            if (!courseCode) {
-                alert("Please enter a course code.");
-                return;
-            }
+    if (!courseCode) {
+        alert("Please enter a course code.");
+        return;
+    }
 
-            // UI State: Show loading, hide previous results
-            loading.classList.remove('hidden');
-            resultsArea.classList.add('hidden');
+    loading.classList.remove('hidden');
+    resultsArea.classList.add('hidden');
 
-            try {
-                const response = await fetch('/search', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ course_code: course_code, term: term })
-                });
+    try {
+        console.log("Sending request for:", courseCode); // Check 2
+        const response = await fetch('/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ course_code: courseCode })
+        });
 
-                const data = await response.json();
-                
-                // Displaying the results
-                resultsContent.innerHTML = `<div class="result-card">${data.results.replace(/\n/g, '<br>')}</div>`;
-                
-                loading.classList.add('hidden');
-                resultsArea.classList.remove('hidden');
-            } catch (error) {
-                loading.classList.add('hidden');
-                alert("Error connecting to the AI Agent. Please check your backend.");
-            }
-        }
+        console.log("Response status:", response.status); // Check 3
+        const data = await response.json();
+        
+        resultsContent.innerHTML = `<div class="result-card">${data.results.replace(/\n/g, '<br>')}</div>`;
+        loading.classList.add('hidden');
+        resultsArea.classList.remove('hidden');
+    } catch (error) {
+        console.error("Fetch Error:", error); // Check 4
+        loading.classList.add('hidden');
+        alert("Connection failed. Check your browser console (F12) for details.");
+    }
+}
     </script>
 </body>
 </html>

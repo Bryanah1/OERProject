@@ -1,0 +1,24 @@
+{
+    "PROGRAMMING": [
+        {"title": "Think Java: How to Think Like a Computer Scientist", "url": "https://greenteapress.com/wp/think-java-2e/"},
+        {"title": "Introduction to Programming Using Java", "url": "https://math.hws.edu/javanotes/"}
+    ],
+    "ITEC 4700": [
+        {"title": "Artificial Intelligence: Foundations of Computational Agents", "url": "https://artint.info/3e/html/ArtInt3e.html"}
+    ],
+    "ENGL 1101": [
+        {"title": "Writing for Success", "url": "https://open.umn.edu/opentextbooks/textbooks/writing-for-success"}
+    ],
+    "ITEC 2140": [
+        {"title": "Think Python 2e", "url": "https://greenteapress.com/wp/think-python-2e/"}
+    ],
+    "ITEC 3100": [
+        {"title": "Introduction to Cybersecurity", "url": "https://www.oercommons.org/courses/introduction-to-cybersecurity-2"}
+    ],
+    "HIST 2111": [
+        {"title": "The American Yawp (Vol 1)", "url": "https://www.americanyawp.com/"}
+    ],
+    "MATH 1111": [
+        {"title": "College Algebra - OpenStax", "url": "https://openstax.org/details/books/college-algebra"}
+    ]
+}
