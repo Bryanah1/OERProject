@@ -1,24 +1,168 @@
 {
-    "PROGRAMMING": [
-        {"title": "Think Java: How to Think Like a Computer Scientist", "url": "https://greenteapress.com/wp/think-java-2e/"},
-        {"title": "Introduction to Programming Using Java", "url": "https://math.hws.edu/javanotes/"}
-    ],
-    "ITEC 4700": [
-        {"title": "Artificial Intelligence: Foundations of Computational Agents", "url": "https://artint.info/3e/html/ArtInt3e.html"}
-    ],
-    "ENGL 1101": [
-        {"title": "Writing for Success", "url": "https://open.umn.edu/opentextbooks/textbooks/writing-for-success"}
-    ],
-    "ITEC 2140": [
-        {"title": "Think Python 2e", "url": "https://greenteapress.com/wp/think-python-2e/"}
-    ],
-    "ITEC 3100": [
-        {"title": "Introduction to Cybersecurity", "url": "https://www.oercommons.org/courses/introduction-to-cybersecurity-2"}
-    ],
-    "HIST 2111": [
-        {"title": "The American Yawp (Vol 1)", "url": "https://www.americanyawp.com/"}
-    ],
-    "MATH 1111": [
-        {"title": "College Algebra - OpenStax", "url": "https://openstax.org/details/books/college-algebra"}
-    ]
-}
+    "RESOURCES": {
+      "ai_book": {
+        "title": "Artificial Intelligence: Foundations of Computational Agents (3e)",
+        "url": "https://artint.info/3e/html/ArtInt3e.html"
+      },
+      "java_book": {
+        "title": "Introduction to Programming Using Java",
+        "url": "https://math.hws.edu/javanotes/"
+      },
+      "python_book": {
+        "title": "Think Python: How to Think Like a Computer Scientist",
+        "url": "https://greenteapress.com/wp/think-python-2e/"
+      },
+      "writing_book": {
+        "title": "Writing for Success",
+        "url": "https://open.umn.edu/opentextbooks/textbooks/writing-for-success"
+      },
+      "cyber_security_book": {
+        "title": "Introduction to Cybersecurity",
+        "url": "https://www.oercommons.org/courses/introduction-to-cybersecurity-2"
+      },
+      "hist_yawp_v1": {
+        "title": "The American Yawp (Vol. 1: To 1877)",
+        "url": "https://www.americanyawp.com/"
+      },
+      "hist_yawp_v2": {
+        "title": "The American Yawp (Vol. 2: After 1877)",
+        "url": "https://www.americanyawp.com/"
+      },
+      "world_hist_book": {
+        "title": "World History: Cultures, States, and Societies",
+        "url": "https://oer.galileo.usg.edu/history-textbooks/2/"
+      },
+      "algebra_book": {
+        "title": "College Algebra (OpenStax)",
+        "url": "https://openstax.org/details/books/college-algebra"
+      },
+      "stats_book": {
+        "title": "Introductory Statistics (OpenStax)",
+        "url": "https://openstax.org/details/books/introductory-statistics"
+      },
+      "calc_book": {
+        "title": "Calculus Volume 1",
+        "url": "https://openstax.org/details/books/calculus-volume-1"
+      },
+      "biology_book": {
+        "title": "Biology 2e (OpenStax)",
+        "url": "https://openstax.org/details/books/biology-2e"
+      },
+      "chemistry_book": {
+        "title": "Chemistry 2e (OpenStax)",
+        "url": "https://openstax.org/details/books/chemistry-2e"
+      },
+      "physics_book": {
+        "title": "University Physics Volume 1",
+        "url": "https://openstax.org/details/books/university-physics-volume-1"
+      },
+      "anatomy_book": {
+        "title": "Anatomy and Physiology 2e",
+        "url": "https://openstax.org/details/books/anatomy-and-physiology-2e"
+      },
+      "business_intro_book": {
+        "title": "Introduction to Business (OpenStax)",
+        "url": "https://openstax.org/details/books/introduction-business"
+      },
+      "macro_econ_book": {
+        "title": "Principles of Macroeconomics 3e",
+        "url": "https://openstax.org/details/books/principles-macroeconomics-3e"
+      },
+      "micro_econ_book": {
+        "title": "Principles of Microeconomics 3e",
+        "url": "https://openstax.org/details/books/principles-microeconomics-3e"
+      },
+      "bus_law_book": {
+        "title": "Business Law I Essentials",
+        "url": "https://openstax.org/details/books/business-law-i-essentials"
+      },
+      "database_book": {
+        "title": "Relational Databases and SQL",
+        "url": "https://open.umn.edu/opentextbooks/textbooks/892"
+      },
+      "systems_analysis_book": {
+        "title": "Systems Analysis and Design",
+        "url": "https://open.umn.edu/opentextbooks/textbooks/systems-analysis-and-design"
+      },
+      "software_engineering_book": {
+        "title": "Engineering Software Products",
+        "url": "https://open.umn.edu/opentextbooks/textbooks/1183"
+      },
+      "psych_book": {
+        "title": "Psychology 2e (OpenStax)",
+        "url": "https://openstax.org/details/books/psychology-2e"
+      },
+      "sociology_book": {
+        "title": "Introduction to Sociology 3e",
+        "url": "https://openstax.org/details/books/introduction-sociology-3e"
+      },
+      "student_success": {
+        "title": "College Success (OpenStax)",
+        "url": "https://openstax.org/details/books/college-success"
+      }
+    },
+    "MAPPINGS": {
+      "ITEC 4700": "ai_book",
+      "ARTIFICIAL INTELLIGENCE": "ai_book",
+      "AI": "ai_book",
+      "ITEC 2150": "java_book",
+      "JAVA PROGRAMMING": "java_book",
+      "PROGRAMMING": "java_book",
+      "JAVA": "java_book",
+      "ITEC 2140": "python_book",
+      "PYTHON": "python_book",
+      "PROGRAMMING FUNDAMENTALS": "python_book",
+      "ENGL 1101": "writing_book",
+      "ENGLISH COMPOSITION": "writing_book",
+      "ITEC 3100": "cyber_security_book",
+      "CYBERSECURITY": "cyber_security_book",
+      "SECURITY": "cyber_security_book",
+      "HIST 2111": "hist_yawp_v1",
+      "HISTORY": "hist_yawp_v1",
+      "US HISTORY TO 1877": "hist_yawp_v1",
+      "HIST": "hist_yawp_v1",
+      "HIST 2112": "hist_yawp_v2",
+      "US HISTORY SINCE 1877": "hist_yawp_v2",
+      "HIST 1111": "world_hist_book",
+      "WORLD HISTORY": "world_hist_book",
+      "MATH 1111": "algebra_book",
+      "MATH": "algebra_book",
+      "COLLEGE ALGEBRA": "algebra_book",
+      "MATH 1401": "stats_book",
+      "STATISTICS": "stats_book",
+      "MATH 2431": "calc_book",
+      "CALCULUS": "calc_book",
+      "SCIENCE": "biology_book",
+      "BIOLOGY": "biology_book",
+      "BIOL 1107": "biology_book",
+      "CHEMISTRY": "chemistry_book",
+      "CHEM 1211": "chemistry_book",
+      "PHYSICS": "physics_book",
+      "PHYS 2211": "physics_book",
+      "ANATOMY": "anatomy_book",
+      "BIOL 2451": "anatomy_book",
+      "BUSINESS": "business_intro_book",
+      "BUSA 1105": "business_intro_book",
+      "INTRODUCTION TO BUSINESS": "business_intro_book",
+      "ECONOMICS": "macro_econ_book",
+      "MACROECONOMICS": "macro_econ_book",
+      "ECON 2105": "macro_econ_book",
+      "ECON 2106": "micro_econ_book",
+      "MICROECONOMICS": "micro_econ_book",
+      "BUSINESS LAW": "bus_law_book",
+      "BUSA 2106": "bus_law_book",
+      "ITEC 3200": "database_book",
+      "DATABASES": "database_book",
+      "SQL": "database_book",
+      "ITEC 3450": "systems_analysis_book",
+      "SYSTEMS ANALYSIS": "systems_analysis_book",
+      "ITEC 3900": "software_engineering_book",
+      "SOFTWARE ENGINEERING": "software_engineering_book",
+      "PSYC 1101": "psych_book",
+      "PSYCHOLOGY": "psych_book",
+      "SOCIOLOGY": "sociology_book",
+      "SOCI 1101": "sociology_book",
+      "GGC 1000": "student_success",
+      "FIRST YEAR EXPERIENCE": "student_success"
+    }
+  }
